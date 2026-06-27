@@ -1,5 +1,5 @@
 # Ideia geral
-## nome: Freela Sheduler
+## Nome: Freela Sheduler
 
 Imagine que você é um desenvolvedor freelancer e recebe várias propostas de serviço.
 
@@ -17,3 +17,36 @@ Esse é exatamente o problema de Weighted Interval Scheduling (Interval Scheduli
 
 O usuario vai informar o nome, horario de inicio, horario de fim e valor da tarefa. Apos adicionar deve aparecer na lista de tarefas do cara, como uma lista comun (se der tempo botar em grafico).
 Vai existir um botao de 'calcular agenda', clicando nele vai executar o algoritmo e atravez d eum endpoint do flask, que vai retornar quais sao as tarefas que serao eitas pra maximar o lucro 
+
+## Sobre a API
+
+Eu pensei em uma rota exclusiva, que vai receber uma lista de tarefas e cada tarefa vai ter nome, inicio, fim e valor, ela vai receber 
+EX:
+```json
+
+[
+    {
+        "nome":"Landing Page",
+        "inicio":8,
+        "fim":10,
+        "valor":500
+    },
+    {
+        "nome":"API",
+        "inicio":10,
+        "fim":13,
+        "valor":700
+    }
+]
+```
+essa lista e vai devolver o lucro total e a lista dos projetos que ele vai fazer pra ter esse lucro
+EX:
+```json
+
+{
+    "lucro":2200,
+    "projetos":[
+        ...
+    ]
+}
+```
