@@ -2,7 +2,7 @@
 
 from operator import itemgetter
 
-class Scheduling():
+class Scheduling:
     def __init__(self, tarefas):
         self.tarefas= tarefas
 
@@ -10,6 +10,8 @@ class Scheduling():
     def ordena_pelo_termino(self):
         self.tarefas = sorted(self.tarefas, key= itemgetter('fim'))
 
+        
+    def calcula_compativeis(self):
         p =[]
         for i in range(len(self.tarefas)):
             ultimo_compa = -1
@@ -75,6 +77,7 @@ class Scheduling():
         
     def schedule(self):
         self.ordena_pelo_termino()
+        self.calcula_compativeis()
         self.calcula_lucro()
 
         return {
