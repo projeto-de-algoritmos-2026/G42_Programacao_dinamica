@@ -47,3 +47,37 @@ class Scheduling():
 
         self.dp = dp
         return dp 
+
+    def reconstruir_solucao(self):
+        escolhidas = []
+
+        i = len(self.tarefas) - 1
+
+        while i >= 0:
+
+            incluir = self.tarefas[i]["valor"]
+
+            if self.p[i] != -1:
+                incluir += self.dp[self.p[i]]
+
+            excluir = self.dp[i - 1] if i > 0 else 0
+
+            # O projeto foi escolhido?
+            if incluir >= excluir:
+                escolhidas.append(self.tarefas[i])
+                i = self.p[i]
+            else:
+                i -= 1
+
+        escolhidas.reverse()
+
+        return escolhidas
+        
+    def schedule(self):
+        self.ordena_pelo_termino()
+        self.calcula_lucro()
+
+        return {
+            "lucro": self.dp[-1] if self.dp else 0,
+            "projetos": self.reconstruir_solucao()
+        }
