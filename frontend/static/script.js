@@ -1,6 +1,7 @@
 
 let tarefas = []; // [{ nome, inicio, fim, valor }]
-
+const btnExemplo = document.getElementById('btn-exemplo');
+const btnLimpar = document.getElementById('btn-limpar');
 const form = document.getElementById('form-tarefa');
 const inputNome = document.getElementById('nome');
 const inputInicio = document.getElementById('inicio');
@@ -229,4 +230,50 @@ function renderizarResultado(dados) {
 
     resultadoLucro.textContent = formatarMoeda(dados.lucro);
 }
+
+btnExemplo.addEventListener('click', function () {
+
+    tarefas = [
+        { nome: 'Correção de Bug', inicio: 8, fim: 9, valor: 120 },
+        { nome: 'Daily Meeting', inicio: 8, fim: 10, valor: 180 },
+        { nome: 'Implementar Login', inicio: 9, fim: 11, valor: 250 },
+        { nome: 'Refatoração API', inicio: 10, fim: 12, valor: 220 },
+        { nome: 'Ajuste CSS', inicio: 11, fim: 12, valor: 100 },
+        { nome: 'Integração Pagamentos', inicio: 12, fim: 15, valor: 450 },
+        { nome: 'Testes Unitários', inicio: 12, fim: 13, valor: 130 },
+        { nome: 'Documentação Swagger', inicio: 13, fim: 14, valor: 140 },
+        { nome: 'Deploy Homologação', inicio: 14, fim: 15, valor: 160 },
+        { nome: 'Criar Dashboard', inicio: 15, fim: 18, valor: 400 },
+        { nome: 'Otimização SQL', inicio: 15, fim: 16, valor: 180 },
+        { nome: 'Análise de Logs', inicio: 16, fim: 17, valor: 170 },
+        { nome: 'Correção Produção', inicio: 17, fim: 18, valor: 200 },
+        { nome: 'Feature Relatórios', inicio: 18, fim: 20, valor: 320 },
+        { nome: 'Code Review', inicio: 18, fim: 19, valor: 140 },
+        { nome: 'Pipeline CI/CD', inicio: 19, fim: 21, valor: 260 },
+        { nome: 'Monitoramento', inicio: 20, fim: 22, valor: 240 },
+        { nome: 'Backup Banco', inicio: 21, fim: 23, valor: 220 }
+    ];
+
+    legend.hidden = true;
+    resultPlaceholder.hidden = false;
+    resultContent.hidden = true;
+
+    renderizarTudo();
+});
+
+btnLimpar.addEventListener('click', function () {
+
+    tarefas = [];
+
+    form.reset();
+    formErro.textContent = '';
+    resultadoLucro.textContent = 'R$ 0';
+
+    legend.hidden = true;
+    resultPlaceholder.hidden = false;
+    resultContent.hidden = true;
+
+    renderizarTudo();
+});
+
 renderizarTudo();

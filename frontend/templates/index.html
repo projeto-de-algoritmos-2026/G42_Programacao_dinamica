@@ -16,6 +16,8 @@
 <div class="page">
 
     <h1>Agenda de Tarefas</h1>
+    <p>Você é um desenvolvedor freelancer e quer saber quais tarefas valem mais a pena a serem feitas de acordo com seu valor.
+    <br>Para isso adicione as tarefas e calcule qual o melhor conjunto de tarefas.</p>
 
     <main class="layout">
 
@@ -38,6 +40,9 @@
                         <button type="submit" class="btn">
                             Adicionar
                         </button>
+                        <button type="button" id="btn-limpar" class="btn">
+                            Limpar agenda
+                        </button>
 
                     </form>
                 </div>
@@ -58,6 +63,10 @@
 
                 <button id="btn-calcular" class="btn" disabled>
                     Calcular melhor agenda
+                </button>
+
+                <button type="button" id="btn-exemplo" class="btn">
+                    Carregar exemplo
                 </button>
             </div>
 
@@ -83,6 +92,8 @@
                     Clique em calcular.
                 </div>
 
+
+
                 <div id="result-content" hidden>
                     <strong>Lucro:</strong>
                     <span id="resultado-lucro">R$ 0</span>
@@ -97,4 +108,12 @@
 </div>
 <script src="../static/script.js"></script>
 </body>
+<footer>
+  <p class="footer">
+    Projeto Programação Dinâmica da disciplina de Projeto de Algoritmos<br><br>
+    Alunos:
+    Gabriel Octacilio Vieira 242004706 | Zayra Batista Moraes 242015989
+  </p>
+</footer>
+
 </html>
