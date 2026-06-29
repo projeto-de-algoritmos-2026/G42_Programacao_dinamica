@@ -7,10 +7,94 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../static/style.css">
     <title>Programação Dinâmica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>Programação dinamica</h1>
 
+<div class="page">
+
+    <h1>Agenda de Tarefas</h1>
+
+    <main class="layout">
+
+        <section class="panel">
+            <div class="panel-top">
+                <div>
+                    <form id="form-tarefa" class="form-tarefa">
+
+                        <input type="text" id="nome" placeholder="Nome da tarefa" required>
+
+                        <div class="field-row">
+                            <input type="number" id="inicio" placeholder="Início" required>
+                            <input type="number" id="fim" placeholder="Fim" required>
+                        </div>
+
+                        <input type="number" id="valor" placeholder="Valor" required>
+
+                        <p id="form-erro" class="form-erro"></p>
+
+                        <button type="submit" class="btn">
+                            Adicionar
+                        </button>
+
+                    </form>
+                </div>
+                <div>
+
+                    <h2>
+                        Tarefas
+                        <span id="contador-tarefas">0</span>
+                    </h2>
+
+                    <ul id="task-list" class="task-list">
+                        <li id="task-list-empty">
+                            Nenhuma tarefa adicionada.
+                        </li>
+                    </ul>
+                </div>
+
+
+                <button id="btn-calcular" class="btn" disabled>
+                    Calcular melhor agenda
+                </button>
+            </div>
+
+        </section>
+
+        <section class="panel panel-agenda">
+
+            <h2>Agenda</h2>
+
+            <div id="legend" hidden>
+                Selecionadas = preenchidas | Rejeitadas = tracejadas
+            </div>
+
+            <div id="gantt" class="gantt">
+                <div id="gantt-empty">
+                    Adicione tarefas para visualizar.
+                </div>
+            </div>
+
+            <div id="result" class="result">
+
+                <div id="result-placeholder">
+                    Clique em calcular.
+                </div>
+
+                <div id="result-content" hidden>
+                    <strong>Lucro:</strong>
+                    <span id="resultado-lucro">R$ 0</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
 <script src="../static/script.js"></script>
 </body>
 </html>
