@@ -304,6 +304,9 @@ input::placeholder{
     border-radius:14px;
 
     padding:14px;
+    position:relative;
+    overflow-x:auto;
+    overflow-y:auto;
 }
 
 .gantt__rows{

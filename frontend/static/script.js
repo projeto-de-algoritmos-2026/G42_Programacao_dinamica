@@ -108,7 +108,7 @@ function renderizarFila() {
 }
 
 //agenda
-const ALTURA_LINHA = 38;
+const ALTURA_LINHA = 42;
 
 function renderizarGantt(selecionadas) {
     gantt.innerHTML = '';
@@ -120,7 +120,7 @@ function renderizarGantt(selecionadas) {
 
     const minHora = Math.floor(Math.min(...tarefas.map(t => t.inicio)));
     const maxHora = Math.ceil(Math.max(...tarefas.map(t => t.fim)));
-    const span = Math.max(maxHora - minHora, 1);
+    const span = Math.max(maxHora - minHora, 8);
 
     const nomesSelecionados = selecionadas ? new Set(selecionadas.map(t => t.nome)) : null;
 
@@ -147,7 +147,7 @@ function renderizarGantt(selecionadas) {
         row.className = 'gantt-row';
 
         const left = ((tarefa.inicio - minHora) / span) * 100;
-        const width = ((tarefa.fim - tarefa.inicio) / span) * 100;
+        const width = Math.max(((tarefa.fim - tarefa.inicio) / span) * 100, 3);
 
         const bar = document.createElement('div');
         bar.className = 'gantt-bar';
@@ -172,7 +172,7 @@ function renderizarGantt(selecionadas) {
     axis.className = 'gantt__axis';
     axis.style.height = '20px';
 
-    for (let h = minHora; h <= maxHora; h++) {
+    for (let h = minHora; h <= maxHora +1; h++) {
         const pos = ((h - minHora) / span) * 100;
         const tick = document.createElement('span');
         tick.className = 'gantt__tick';
